@@ -11,6 +11,15 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        mainBorder: "rgb(228 235 250/1)",
+        darkBorder: "rgb(62 63 78/1)",
+
+        mainDark: "#2B2C37",
+        bgDark: "#20212C",
+        buttonsMain: "#635FC7",
+        inputBorder: "rgba(130,143,163,.4)",
+        mainText: "#635FC7",
+        bgWhite: "#F4F7FD",
       },
     },
   },
