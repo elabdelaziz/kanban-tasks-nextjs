@@ -1,26 +1,37 @@
 'use client';
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "@/app/styles/DayNightToggle.module.css";
+import useLocalStorage from "@/app/hooks/useLocalStorage";
 
-interface ThemeSwitchProps {
-  isDark: boolean;
-  // onToggle: (isDark: boolean) => void;
-}
+const DayNightToggle = () => {
+  const [darkMode, setDarkMode] = useLocalStorage("darkMode", false);
 
-const DayNightToggle = ({ isDark }: ThemeSwitchProps) => {
-  const [isChecked, setIsChecked] = useState<boolean>(isDark);
+  const onToggle = (isDark: boolean) => {
+    setDarkMode(isDark);
+  };
 
   const handleToggle = () => {
-    const newIsDark = !isChecked;
-    setIsChecked(newIsDark);
-    // onToggle(newIsDark);
+    const newIsDark = !darkMode;
+    onToggle(newIsDark);
   };
+
+  useEffect(() => {
+    const htmlElement = document.documentElement;
+    if (darkMode) {
+      htmlElement.classList.add("dark");
+      localStorage.setItem("darkMode", "true");
+    } else {
+      htmlElement.classList.remove("dark");
+      localStorage.setItem("darkMode", "false");
+    }
+  }, [darkMode]);
+
   return (
     <div className={styles.toggleWrapper}>
       <input
         type="checkbox"
-        checked={isChecked}
+        checked={darkMode}
         onChange={handleToggle}
         className={styles.dn}
         id="dn"

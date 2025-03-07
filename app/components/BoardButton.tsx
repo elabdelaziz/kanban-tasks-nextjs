@@ -1,4 +1,5 @@
 import Image from "next/image";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 type BoardProps = {
   title: string;
@@ -6,10 +7,10 @@ type BoardProps = {
 };
 
 const BoardButton = ({ title, boardId }: BoardProps) => {
+  const [activeBoardId, setActiveBoardId] = useLocalStorage("activeBoardId", 1);
 
-  const activeBoardId = 1;
   const handleClick = () => {
-    
+    setActiveBoardId(boardId);
   };
 
   return (
@@ -25,7 +26,9 @@ const BoardButton = ({ title, boardId }: BoardProps) => {
         width={20}
         height={20}
         alt="Board Icon"
-        className="mr-[1rem]" src="assets/icon-board.svg"></Image>
+        className="mr-[1rem]"
+        src="assets/icon-board.svg"
+      ></Image>
       <span>{title}</span>
     </button>
   );

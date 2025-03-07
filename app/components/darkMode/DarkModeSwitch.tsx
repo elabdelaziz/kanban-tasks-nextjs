@@ -8,7 +8,7 @@ const DarkModeSwitch = () => {
 
   return (
     <div className="w-full">
-      <div className="mb-[2rem] relative h-[48px] rounded-[6px] my-[1rem] bg-bgWhite dark:bg-bgDark flex items-center justify-between">
+      <div className="mb-[2rem] relative h-[48px] rounded-[6px] my-[1rem] bg-bgWhite dark:bg-mainDark flex items-center justify-between">
         <Image
           alt="Light Theme"
           width={20}
@@ -16,7 +16,7 @@ const DarkModeSwitch = () => {
           className="w-[20px] ml-[10px] h-[20px]"
           src="/assets/icon-light-theme.svg"
         />
-        <DayNightToggle isDark={false} />
+        <DayNightToggle />
         <Image
           alt="Dark Theme"
           width={20}
@@ -25,7 +25,6 @@ const DarkModeSwitch = () => {
           src="/assets/icon-dark-theme.svg"
         />
       </div>
-      
     </div>
   );
 }

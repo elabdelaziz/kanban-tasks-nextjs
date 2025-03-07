@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 
 export default {
+  darkMode: "class",
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -14,8 +15,8 @@ export default {
         mainBorder: "rgb(228 235 250/1)",
         darkBorder: "rgb(62 63 78/1)",
 
-        mainDark: "#2B2C37",
-        bgDark: "#20212C",
+        bgDark: "#2B2C37",
+        mainDark: "#20212C",
         buttonsMain: "#635FC7",
         inputBorder: "rgba(130,143,163,.4)",
         mainText: "#635FC7",

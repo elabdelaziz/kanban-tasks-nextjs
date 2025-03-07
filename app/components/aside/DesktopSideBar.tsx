@@ -1,13 +1,35 @@
 'use client'
 
-import React from 'react'
-import DarkModeSwitch from '../darkMode/DarkModeSwitch';
-import useLocalStorage from '@/app/hooks/useLocalStorage';
-import Image from 'next/image';
-import BoardButton from '../BoardButton';
+import React, { useEffect } from "react";
+import DarkModeSwitch from "../darkMode/DarkModeSwitch";
+import useLocalStorage from "@/app/hooks/useLocalStorage";
+import Image from "next/image";
+import BoardButton from "../BoardButton";
 
 const DesktopSideBar = () => {
-  const [SideBarHidden, setSideBarHidden] = useLocalStorage("sidebarHidden", false);
+  const [SideBarHidden, setSideBarHidden] = useLocalStorage(
+    "sidebarHidden",
+    true
+  );
+
+  useEffect(() => {
+    console.log("SideBarHidden", SideBarHidden);
+  }, [SideBarHidden]);
+
+  const mockBoards = [
+    {
+      id: 1,
+      title: "Board 1",
+    },
+    {
+      id: 2,
+      title: "Board 2",
+    },
+    {
+      id: 3,
+      title: "Board 3",
+    },
+  ];
 
   if (SideBarHidden) {
     return (
@@ -16,7 +38,7 @@ const DesktopSideBar = () => {
         onClick={() => setSideBarHidden(false)}
       >
         <Image
-          className="h-fit cursor-pointer"
+          className="cursor-pointer"
           alt="Show Sidebar"
           width={30}
           height={30}
@@ -28,11 +50,11 @@ const DesktopSideBar = () => {
   return (
     <aside className="flex flex-col items-start justify-between pt-6 w-[301px] border-r border-r-mainBorder dark:border-r-darkBorder">
       <div className="flex items-start flex-col gap-4">
-        <BoardButton title="Board 1" boardId={1} />
-        <BoardButton title="Board 2" boardId={2} />
-        <BoardButton title="Board 3" boardId={3} />
+        {mockBoards.map((board) => (
+          <BoardButton key={board.id} title={board.title} boardId={board.id} />
+        ))}
       </div>
-      <div className='flex px-8 flex-col w-full'>
+      <div className="flex px-8 flex-col w-full">
         <DarkModeSwitch />
         <div
           onClick={() => setSideBarHidden(true)}
@@ -43,6 +65,6 @@ const DesktopSideBar = () => {
       </div>
     </aside>
   );
-}
+};
 
 export default DesktopSideBar

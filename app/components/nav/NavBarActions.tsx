@@ -1,8 +1,6 @@
-'use client'
-
-import Image from 'next/image';
-import MainBtn from '../MainBtn';
-import { useState } from 'react';
+import Image from "next/image";
+import MainBtn from "../MainBtn";
+import { useState } from "react";
 
 const NavBarActions = () => {
   const [editMode, setEditMode] = useState(false);
@@ -34,6 +32,6 @@ const NavBarActions = () => {
       )}
     </div>
   );
-}
+};
 
-export default NavBarActions
+export default NavBarActions;
