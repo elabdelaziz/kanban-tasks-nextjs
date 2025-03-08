@@ -7,31 +7,29 @@ const Logo = () => {
   const [isMobile] = useLocalStorage("isMobile", false);
 
   return (
-    <div className='pl-6'>
+    <div className="pl-6">
       {darkMode && !isMobile && (
+        <Image width={150} height={26} src="assets/logo-light.svg" alt="logo" />
+      )}
+      {!darkMode && !isMobile && (
         <Image
+          className="w-[150px] h-[26px]"
           width={150}
           height={26}
-          src="assets/logo-light.svg"
+          src="/assets/logo-dark.svg"
           alt="logo"
+          priority
         />
       )}
-      {!darkMode && !isMobile &&
+      {isMobile && (
         <Image
           width={150}
           height={26}
-          src="assets/logo-dark.svg"
+          src="/assets/logo-mobile.svg"
           alt="logo"
+          priority
         />
-      }
-      {isMobile &&
-        <Image
-          width={150}
-          height={26}
-          src="assets/logo-mobile.svg"
-          alt="logo"
-        />
-      }
+      )}
     </div>
   );
 }

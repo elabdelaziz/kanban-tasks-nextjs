@@ -3,21 +3,25 @@ import useLocalStorage from "../hooks/useLocalStorage";
 
 type BoardProps = {
   title: string;
-  boardId: number;
+  boardIndex: number;
+  isActive: boolean;
 };
 
-const BoardButton = ({ title, boardId }: BoardProps) => {
-  const [activeBoardId, setActiveBoardId] = useLocalStorage("activeBoardId", 1);
+const BoardButton = ({ title, boardIndex, isActive }: BoardProps) => {
+  const [activeBoardIndex, setActiveBoardIndex] = useLocalStorage(
+    "activeBoardIndex",
+    1
+  );
 
   const handleClick = () => {
-    setActiveBoardId(boardId);
+    setActiveBoardIndex(boardIndex);
   };
 
   return (
     <button
       onClick={handleClick}
       className={`${
-        activeBoardId === boardId
+        activeBoardIndex === boardIndex
           ? "bg-buttonsMain text-white font-medium w-full md:w-[17rem]"
           : "opacity-[0.7] dark:opacity-[1]"
       } flex items-center mb-[0.2rem] px-[2rem] py-[0.8rem] w-[17rem] text-[16px] font-normal rounded-r-[25px]`}

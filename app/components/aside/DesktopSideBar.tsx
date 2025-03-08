@@ -6,30 +6,11 @@ import useLocalStorage from "@/app/hooks/useLocalStorage";
 import Image from "next/image";
 import BoardButton from "../BoardButton";
 
-const DesktopSideBar = () => {
+const DesktopSideBar = ({ boards }: { boards: Board[] }) => {
   const [SideBarHidden, setSideBarHidden] = useLocalStorage(
     "sidebarHidden",
     true
   );
-
-  useEffect(() => {
-    console.log("SideBarHidden", SideBarHidden);
-  }, [SideBarHidden]);
-
-  const mockBoards = [
-    {
-      id: 1,
-      title: "Board 1",
-    },
-    {
-      id: 2,
-      title: "Board 2",
-    },
-    {
-      id: 3,
-      title: "Board 3",
-    },
-  ];
 
   if (SideBarHidden) {
     return (
@@ -38,10 +19,10 @@ const DesktopSideBar = () => {
         onClick={() => setSideBarHidden(false)}
       >
         <Image
-          className="cursor-pointer"
+          className="cursor-pointer w-[16px] h-[11px]"
           alt="Show Sidebar"
-          width={30}
-          height={30}
+          width={16}
+          height={11}
           src="/assets/icon-show-sidebar.svg"
         />
       </button>
@@ -50,8 +31,13 @@ const DesktopSideBar = () => {
   return (
     <aside className="flex flex-col items-start justify-between pt-6 w-[301px] border-r border-r-mainBorder dark:border-r-darkBorder">
       <div className="flex items-start flex-col gap-4">
-        {mockBoards.map((board) => (
-          <BoardButton key={board.id} title={board.title} boardId={board.id} />
+        {boards.map((board, index) => (
+          <BoardButton
+            key={index}
+            title={board.title}
+            isActive={board.isActive}
+            boardIndex={index}
+          />
         ))}
       </div>
       <div className="flex px-8 flex-col w-full">
