@@ -1,10 +1,10 @@
-import useLocalStorage from '@/app/hooks/useLocalStorage';
-import Image from 'next/image';
+import useLocalStorage from '@/app/hooks/useLocalStorage'
+import Image from 'next/image'
 import React from 'react'
 
 const Logo = () => {
-  const [darkMode] = useLocalStorage("darkMode", false);
-  const [isMobile] = useLocalStorage("isMobile", false);
+  const [darkMode] = useLocalStorage('darkMode', false)
+  const [isMobile] = useLocalStorage('isMobile', false)
 
   return (
     <div className="pl-6">
@@ -31,7 +31,7 @@ const Logo = () => {
         />
       )}
     </div>
-  );
+  )
 }
 
 export default Logo

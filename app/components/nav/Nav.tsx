@@ -1,17 +1,17 @@
-"use client";
+'use client'
 
-import NavBarActions from "./NavBarActions";
-import Logo from "./Logo";
-import useLocalStorage from "@/app/hooks/useLocalStorage";
+import NavBarActions from './NavBarActions'
+import Logo from './Logo'
+import useLocalStorage from '@/app/hooks/useLocalStorage'
 
 const Nav = ({ boards }: { boards: Board[] }) => {
-  const [activeBoardIndex] = useLocalStorage("activeBoardIndex", null);
+  const [activeBoardIndex] = useLocalStorage('activeBoardIndex', null)
 
   const activeBoardId = boards.map((board, index) => {
     if (index === activeBoardIndex) {
-      return board.title;
+      return board.title
     }
-  });
+  })
 
   return (
     <nav className="flex justify-between items-center pr-6 w-full border-b border-b-mainBorder dark:border-b-darkBorder">
@@ -25,7 +25,7 @@ const Nav = ({ boards }: { boards: Board[] }) => {
         <NavBarActions />
       </div>
     </nav>
-  );
-};
+  )
+}
 
-export default Nav;
+export default Nav

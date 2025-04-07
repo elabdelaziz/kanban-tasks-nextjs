@@ -1,10 +1,13 @@
-import DesktopSideBar from "./components/aside/DesktopSideBar";
-import Nav from "./components/nav/Nav";
+import DesktopSideBar from './components/aside/DesktopSideBar'
+import Columns from './components/columns/Columns'
+import Nav from './components/nav/Nav'
+import NewTaskModal from './components/NewTask'
+import OverlayModalRenderer from './components/overlays/OverlayModalRenderer'
 
 export default async function Home() {
-  const data = await fetch("http://localhost:3000/api/userData").then((res) =>
-    res.json()
-  );
+  const data = await fetch('http://localhost:3000/api/userData').then((res) =>
+    res.json(),
+  )
 
   return (
     <div className="h-screen dark:bg-bgDark dark:text-white flex flex-col">
@@ -15,10 +18,13 @@ export default async function Home() {
       <div className="relative flex flex-grow overflow-hidden">
         <DesktopSideBar boards={data.boards} />
 
-        <main className="dark:bg-mainDark bg-bgWhite flex-grow overflow-scroll hide-scrollbar ">
-          <section className="h-[200vh] "></section>
+        <main className="dark:bg-mainDark bg-bgWhite flex-grow overflow-scroll">
+          <section className="overflow-scroll p-4">
+            <Columns data={data} />
+          </section>
         </main>
       </div>
+      <OverlayModalRenderer />
     </div>
-  );
+  )
 }

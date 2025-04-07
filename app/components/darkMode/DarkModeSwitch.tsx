@@ -1,11 +1,10 @@
 'use client'
 
 import React from 'react'
-import DayNightToggle from './DayNightToggle';
-import Image from 'next/image';
+import DayNightToggle from './DayNightToggle'
+import Image from 'next/image'
 
 const DarkModeSwitch = () => {
-
   return (
     <div className="w-full">
       <div className="mb-[2rem] relative h-[48px] rounded-[6px] my-[1rem] bg-bgWhite dark:bg-mainDark flex items-center justify-between">
@@ -26,7 +25,7 @@ const DarkModeSwitch = () => {
         />
       </div>
     </div>
-  );
+  )
 }
 
 export default DarkModeSwitch

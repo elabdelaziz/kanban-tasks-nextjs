@@ -1,24 +1,24 @@
-import useLocalStorageState from "use-local-storage-state";
-import { useState, Dispatch, SetStateAction } from "react";
+import useLocalStorageState from 'use-local-storage-state'
+import { useState, Dispatch, SetStateAction } from 'react'
 
 const useLocalStorage = <T>(
   keyName: string,
   initialValue: T,
-  options?: object
+  options?: object,
 ): [T, Dispatch<SetStateAction<T>>] => {
-  let returnState = useState<T>(initialValue);
+  let returnState = useState<T>(initialValue)
 
   try {
     const [value, setValue] = useLocalStorageState<T>(keyName, {
       defaultValue: initialValue,
       ...options,
-    });
-    returnState = [value, setValue];
+    })
+    returnState = [value, setValue]
   } catch (e) {
-    console.error(e);
+    console.error(e)
   }
 
-  return returnState;
-};
+  return returnState
+}
 
-export default useLocalStorage;
+export default useLocalStorage

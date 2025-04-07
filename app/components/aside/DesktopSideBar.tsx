@@ -1,16 +1,16 @@
 'use client'
 
-import React, { useEffect } from "react";
-import DarkModeSwitch from "../darkMode/DarkModeSwitch";
-import useLocalStorage from "@/app/hooks/useLocalStorage";
-import Image from "next/image";
-import BoardButton from "../BoardButton";
+import React, { useEffect } from 'react'
+import DarkModeSwitch from '../darkMode/DarkModeSwitch'
+import useLocalStorage from '@/app/hooks/useLocalStorage'
+import Image from 'next/image'
+import BoardButton from '../BoardButton'
 
 const DesktopSideBar = ({ boards }: { boards: Board[] }) => {
   const [SideBarHidden, setSideBarHidden] = useLocalStorage(
-    "sidebarHidden",
-    true
-  );
+    'sidebarHidden',
+    true,
+  )
 
   if (SideBarHidden) {
     return (
@@ -26,7 +26,7 @@ const DesktopSideBar = ({ boards }: { boards: Board[] }) => {
           src="/assets/icon-show-sidebar.svg"
         />
       </button>
-    );
+    )
   }
   return (
     <aside className="flex flex-col items-start justify-between pt-6 w-[301px] border-r border-r-mainBorder dark:border-r-darkBorder">
@@ -50,7 +50,7 @@ const DesktopSideBar = ({ boards }: { boards: Board[] }) => {
         </div>
       </div>
     </aside>
-  );
-};
+  )
+}
 
 export default DesktopSideBar
