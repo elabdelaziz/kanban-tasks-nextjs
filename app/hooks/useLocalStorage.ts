@@ -1,3 +1,5 @@
+'use client'
+
 import useLocalStorageState from 'use-local-storage-state'
 import { useState, Dispatch, SetStateAction } from 'react'
 

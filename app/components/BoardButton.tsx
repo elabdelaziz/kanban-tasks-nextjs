@@ -7,7 +7,7 @@ type BoardProps = {
   isActive: boolean
 }
 
-const BoardButton = ({ title, boardIndex, isActive }: BoardProps) => {
+const BoardButton = ({ title, boardIndex }: BoardProps) => {
   const [activeBoardIndex, setActiveBoardIndex] = useLocalStorage(
     'activeBoardIndex',
     1,
@@ -23,8 +23,8 @@ const BoardButton = ({ title, boardIndex, isActive }: BoardProps) => {
       className={`${
         activeBoardIndex === boardIndex
           ? 'bg-buttonsMain text-white font-medium w-full md:w-[17rem]'
-          : 'opacity-[0.7] dark:opacity-[1]'
-      } flex items-center mb-[0.2rem] px-[2rem] py-[0.8rem] w-[17rem] text-[16px] font-normal rounded-r-[25px]`}
+          : 'opacity-[0.7] dark:opacity-[1] font-normal'
+      } flex items-center mb-[0.2rem] px-[2rem] py-[0.8rem] w-[17rem] text-[16px] rounded-r-[25px]`}
     >
       <Image
         width={20}

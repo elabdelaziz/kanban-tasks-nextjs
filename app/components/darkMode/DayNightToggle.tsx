@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import styles from '@/app/styles/DayNightToggle.module.css'
 import useLocalStorage from '@/app/hooks/useLocalStorage'
 

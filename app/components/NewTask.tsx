@@ -1,7 +1,8 @@
+import Image from 'next/image'
 import useLocalStorage from '../hooks/useLocalStorage'
 
 const NewTaskModal = () => {
-  const [newTaskMode, setNewTaskMode] = useLocalStorage('newTaskMode', false)
+  const [, setNewTaskMode] = useLocalStorage('newTaskMode', false)
 
   return (
     <>
@@ -43,7 +44,10 @@ const NewTaskModal = () => {
               className="flex items-center w-[100%] font-[500] justify-between text-[.8125rem] p-[0.7rem_0.5rem] bg-transparent rounded-[4px] border-[2px] border-solid border-inputBorder capitalize transition-[border_.2s_ease]"
             >
               <span></span>
-              <img
+              <Image
+                alt="drop"
+                width={10}
+                height={10}
                 className="w-[10px] h-[7px]"
                 src="/assets/icon-chevron-down.svg"
               />

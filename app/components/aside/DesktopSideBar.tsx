@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect } from 'react'
+import React from 'react'
 import DarkModeSwitch from '../darkMode/DarkModeSwitch'
 import useLocalStorage from '@/app/hooks/useLocalStorage'
 import Image from 'next/image'
@@ -29,7 +29,7 @@ const DesktopSideBar = ({ boards }: { boards: Board[] }) => {
     )
   }
   return (
-    <aside className="flex flex-col items-start justify-between pt-6 w-[301px] border-r border-r-mainBorder dark:border-r-darkBorder">
+    <aside className="flex flex-col items-start justify-between pt-6 min-w-[301px] border-r border-r-mainBorder dark:border-r-darkBorder">
       <div className="flex items-start flex-col gap-4">
         {boards.map((board, index) => (
           <BoardButton

@@ -1,7 +1,6 @@
 import DesktopSideBar from './components/aside/DesktopSideBar'
 import Columns from './components/columns/Columns'
 import Nav from './components/nav/Nav'
-import NewTaskModal from './components/NewTask'
 import OverlayModalRenderer from './components/overlays/OverlayModalRenderer'
 
 export default async function Home() {
@@ -19,9 +18,7 @@ export default async function Home() {
         <DesktopSideBar boards={data.boards} />
 
         <main className="dark:bg-mainDark bg-bgWhite flex-grow overflow-scroll">
-          <section className="overflow-scroll p-4">
-            <Columns data={data} />
-          </section>
+          <Columns data={data} />
         </main>
       </div>
       <OverlayModalRenderer />
