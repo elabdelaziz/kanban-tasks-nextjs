@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import useLocalStorage from '../hooks/useLocalStorage'
+import useLocalStorage from '@/app/hooks/useLocalStorage'
 
 type BoardProps = {
   title: string

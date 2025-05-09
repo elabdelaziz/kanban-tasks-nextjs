@@ -2,15 +2,15 @@
 
 import React from 'react'
 import Task from './Task'
-import { SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable'
+import { rectSortingStrategy, SortableContext } from '@dnd-kit/sortable'
 import { useSortable } from '@dnd-kit/sortable'
 import { CSS } from '@dnd-kit/utilities'
 import clsx from 'clsx'
 import { UniqueIdentifier } from '@dnd-kit/core'
+
 interface ColumnProps {
   column: Column
-  id: number
-  activeTaskId: UniqueIdentifier | null
+  id: UniqueIdentifier
 }
 
 const Column = ({ column, id }: ColumnProps) => {
@@ -54,10 +54,7 @@ const Column = ({ column, id }: ColumnProps) => {
       </div>
 
       {/* Tasks container */}
-      <SortableContext
-        items={column.tasks}
-        strategy={verticalListSortingStrategy}
-      >
+      <SortableContext items={column.tasks} strategy={rectSortingStrategy}>
         <div
           className={clsx(
             'flex flex-col gap-4',

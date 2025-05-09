@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import MainBtn from '../MainBtn'
+import MainBtn from '@/app/components/ui/MainBtn'
 import { useState } from 'react'
 import useLocalStorage from '@/app/hooks/useLocalStorage'
 

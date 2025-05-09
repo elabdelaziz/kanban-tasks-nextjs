@@ -22,8 +22,6 @@ const Task = ({ task, columnId }: { task: Task; columnId: UniqueIdentifier }) =>
     },
   })
 
-  console.log(task.id, 'task id')
-
   const style = {
     transform: CSS.Translate.toString(transform),
     transition,

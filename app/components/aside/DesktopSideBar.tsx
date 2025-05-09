@@ -4,7 +4,7 @@ import React from 'react'
 import DarkModeSwitch from '../darkMode/DarkModeSwitch'
 import useLocalStorage from '@/app/hooks/useLocalStorage'
 import Image from 'next/image'
-import BoardButton from '../BoardButton'
+import BoardButton from '@/app/components/ui/BoardButton'
 
 const DesktopSideBar = ({ boards }: { boards: Board[] }) => {
   const [SideBarHidden, setSideBarHidden] = useLocalStorage(
